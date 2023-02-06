@@ -1,9 +1,9 @@
 # Configuration for /etc/init.d/klipper
 
-KLIPPY_USER=android
-KLIPPY_CONFIG=/home/$KLIPPY_USER/printer_data/config/printer.cfg
-KLIPPY_LOG=/home/$KLIPPY_USER/printer_data/logs/klippy.log
-KLIPPY_SOCKET=/home/$KLIPPY_USER/printer_data/comms/klippy.sock
+KLIPPY_USER=root
+KLIPPY_CONFIG=/$KLIPPY_USER/printer_data/config/printer.cfg
+KLIPPY_LOG=/$KLIPPY_USER/printer_data/logs/klippy.log
+KLIPPY_SOCKET=/$KLIPPY_USER/printer_data/comms/klippy.sock
 KLIPPY_PRINTER=/tmp/printer
-KLIPPY_EXEC=/home/$KLIPPY_USER/klippy-env/bin/python
-KLIPPY_ARGS="/home/$KLIPPY_USER/klipper/klippy/klippy.py $KLIPPY_CONFIG -l $KLIPPY_LOG -a $KLIPPY_SOCKET"
+KLIPPY_EXEC=/$KLIPPY_USER/klippy-env/bin/python
+KLIPPY_ARGS="/$KLIPPY_USER/klipper/klippy/klippy.py $KLIPPY_CONFIG -l $KLIPPY_LOG -a $KLIPPY_SOCKET"
