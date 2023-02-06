@@ -62,10 +62,6 @@
     - `/home/android/octo4a/serialpipe` is the serial port you need to use in your `printer.cfg`
 - Make the serial device accessible to Klipper:
     ```bash
-    sudo chmod 777 /dev/ttyACM0
-    # or 
-    sudo chmod 777 /dev/ttyUSB0
-    # or 
     sudo chmod 777 /home/android/octo4a/serialpipe
     ```
 - Install the init and xterm scripts from this gist:  
