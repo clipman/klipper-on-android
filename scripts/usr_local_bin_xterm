@@ -1,9 +1,9 @@
 #!/bin/bash
 
-KLIPPERSCREEN_DISPLAY=127.0.0.1:1
-KLIPPERSCREEN_USER=android
-KLIPPERSCREEN_CONFIG=/home/$KLIPPERSCREEN_USER/printer_data/config/KlipperScreen.conf
-KLIPPERSCREEN_LOG=/home/$KLIPPERSCREEN_USER/printer_data/logs/KlipperScreen.log
+KLIPPERSCREEN_DISPLAY=127.0.0.1:0   #127.0.0.1:1
+KLIPPERSCREEN_USER=root
+KLIPPERSCREEN_CONFIG=/$KLIPPERSCREEN_USER/printer_data/config/KlipperScreen.conf
+KLIPPERSCREEN_LOG=/$KLIPPERSCREEN_USER/printer_data/logs/KlipperScreen.log
 
 ret=1
 timeout=0
@@ -20,7 +20,7 @@ echo ""
 if [ $timeout -lt 60 ]
 then
     echo -n "Starting Klipper Screen Xclient Deamon .... "
-    DISPLAY=$KLIPPERSCREEN_DISPLAY /home/$KLIPPERSCREEN_USER/.KlipperScreen-env/bin/python /home/$KLIPPERSCREEN_USER/KlipperScreen/screen.py -c $KLIPPERSCREEN_CONFIG -l $KLIPPERSCREEN_LOG >/dev/null 2>&1 < /dev/null &
+    DISPLAY=$KLIPPERSCREEN_DISPLAY /$KLIPPERSCREEN_USER/.KlipperScreen-env/bin/python /$KLIPPERSCREEN_USER/KlipperScreen/screen.py -c $KLIPPERSCREEN_CONFIG -l $KLIPPERSCREEN_LOG >/dev/null 2>&1 < /dev/null &
     echo "running"
     exit 0
 else
