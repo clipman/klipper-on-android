@@ -58,26 +58,28 @@
           - **Enable**: `yes`
           - **Mount points**: press on the "+" button
             - Source: `/data/data/com.octo4a/files`
-            - Target: `/home/android/octo4a`
-    - `/home/android/octo4a/serialpipe` is the serial port you need to use in your `printer.cfg`
+            - Target: `/root/octo4a`
+    - `/root/octo4a/serialpipe` is the serial port you need to use in your `printer.cfg`
 - Make the serial device accessible to Klipper:
     ```bash
-    sudo chmod 777 /home/android/octo4a/serialpipe
+    chmod 777 /root/octo4a/serialpipe
     ```
 - Install the init and xterm scripts from this gist:  
   ```bash
-  sudo wget -O /etc/default/klipper https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_klipper
-  sudo wget -O /etc/init.d/klipper https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_klipper
-  sudo wget -O /etc/default/moonraker https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_moonraker
-  sudo wget -O /etc/init.d/moonraker https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_moonraker
-  sudo wget -O /usr/local/bin/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/usr_local_bin_xterm
+  wget -O /etc/default/klipper https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_klipper
+  wget -O /etc/init.d/klipper https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_klipper
+  wget -O /etc/default/moonraker https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_moonraker
+  wget -O /etc/init.d/moonraker https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_moonraker
+  wget -O /usr/local/bin/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/usr_local_bin_xterm
+  wget -O /root https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/xterm.sh
   
-  sudo chmod +x /etc/init.d/klipper 
-  sudo chmod +x /etc/init.d/moonraker 
-  sudo chmod +x /usr/local/bin/xterm
-  
-  sudo update-rc.d klipper defaults
-  sudo update-rc.d moonraker defaults
+  chmod +x /etc/init.d/klipper 
+  chmod +x /etc/init.d/moonraker 
+  chmod +x /usr/local/bin/xterm
+  chmod +x /root/xterm.sh
+
+  update-rc.d klipper defaults
+  update-rc.d moonraker defaults
   ```
 - Stop the Debian container.
 - Start XServer XSDL.
@@ -94,9 +96,10 @@ Logs can be found in `/home/android/klipper_logs`.
 아래와 같이 수동으로 재실행이 가능합니다.
 
 /etc/init.d/moonraker restart
-
 /etc/init.d/klipper restart
 
+./xterm.sh start
+./xterm.sh stop
 
 ## Telegram Bot
 You can find the instructions how to setup the Telegram Bot [here](https://github.com/d4rk50ul1/klipper-on-android/blob/main/telegram_instructions.md)
