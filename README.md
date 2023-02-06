@@ -95,11 +95,13 @@ Logs can be found in `/home/android/klipper_logs`.
 
 아래와 같이 수동으로 재실행이 가능합니다.
 
-/etc/init.d/moonraker restart 
-/etc/init.d/klipper restart
+  ```bash
+  /etc/init.d/moonraker restart 
+  /etc/init.d/klipper restart
 
-./xterm.sh start 
-./xterm.sh stop
+  /root/xterm.sh start 
+  /root/xterm.sh stop
+  ```
 
 ## Telegram Bot
 You can find the instructions how to setup the Telegram Bot [here](https://github.com/d4rk50ul1/klipper-on-android/blob/main/telegram_instructions.md)
