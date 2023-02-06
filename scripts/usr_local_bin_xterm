@@ -20,7 +20,7 @@ echo ""
 if [ $timeout -lt 60 ]
 then
     echo -n "Starting Klipper Screen Xclient Deamon .... "
-    DISPLAY=$KLIPPERSCREEN_DISPLAY /home/$KLIPPERSCREEN_USER/.KlipperScreen-env/bin/python /home/$KLIPPERSCREEN_USER/KlipperScreen/screen.py -c $KLIPPERSCREEN_CONFIG -l $KLIPPERSCREEN_LOG
+    DISPLAY=$KLIPPERSCREEN_DISPLAY /home/$KLIPPERSCREEN_USER/.KlipperScreen-env/bin/python /home/$KLIPPERSCREEN_USER/KlipperScreen/screen.py -c $KLIPPERSCREEN_CONFIG -l $KLIPPERSCREEN_LOG >/dev/null 2>&1 < /dev/null &
     echo "running"
     exit 0
 else
