@@ -95,6 +95,10 @@
 You can start/stop Klipper and Moonraker manually by using the `service` command (eg: `sudo service start klipper`).  
 Logs can be found in `/home/android/klipper_logs`.
 
+아래와 같이 수동으로 재실행이 가능합니다.
+/etc/init.d/moonraker restart
+/etc/init.d/klipper restart
+
 ## Telegram Bot
 You can find the instructions how to setup the Telegram Bot [here](https://github.com/d4rk50ul1/klipper-on-android/blob/main/telegram_instructions.md)
 
