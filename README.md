@@ -70,11 +70,11 @@
     ```
 - Install the init and xterm scripts from this gist:  
   ```bash
-  sudo wget -O /etc/default/klipper https://raw.githubusercontent.com/d4rk50ul1/klipper-on-android/main/scripts/etc_default_klipper
-  sudo wget -O /etc/init.d/klipper https://raw.githubusercontent.com/d4rk50ul1/klipper-on-android/main/scripts/etc_init.d_klipper
-  sudo wget -O /etc/default/moonraker https://raw.githubusercontent.com/d4rk50ul1/klipper-on-android/main/scripts/etc_default_moonraker
-  sudo wget -O /etc/init.d/moonraker https://raw.githubusercontent.com/d4rk50ul1/klipper-on-android/main/scripts/etc_init.d_moonraker
-  sudo wget -O /usr/local/bin/xterm https://raw.githubusercontent.com/d4rk50ul1/klipper-on-android/main/scripts/usr_local_bin_xterm
+  sudo wget -O /etc/default/klipper https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_klipper
+  sudo wget -O /etc/init.d/klipper https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_klipper
+  sudo wget -O /etc/default/moonraker https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_moonraker
+  sudo wget -O /etc/init.d/moonraker https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_moonraker
+  sudo wget -O /usr/local/bin/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/usr_local_bin_xterm
   
   sudo chmod +x /etc/init.d/klipper 
   sudo chmod +x /etc/init.d/moonraker 
@@ -100,32 +100,3 @@ You can find the instructions how to setup the Telegram Bot [here](https://githu
 
 ## Troubleshooting (ongoing section based on comments)
 - There might be the case that when accessing Mainsail through Browser, you get an error message and no connection to moonraker: mainsail Permission denied while connecting to upstream in `klipper_logs/mainsail_error.log`. To fix this you must change the file `/etc/nginx/nginx.conf`, change `user www-data;` to `user android;` 
-- If anyone is having network issues in the container as a non root user after a few minutes, you need to disable deep sleep/idle. You can do that by using this command in a shell (termux or adb doesn't matter): `dumpsys deviceidle disable`. You may also need this app: [Wake Lock - CPU Awake] (https://play.google.com/store/apps/details?id=com.dambara.wakelocker)
-- As per [ZerGo0](https://gist.github.com/ZerGo0) comments - The latest moonraker update seems to break a few things. There are some changes about the directory and file locations, but you can just sym link the new directories to the old ones using the included script: 
-  ```bash
-  sudo /etc/init.d/moonraker stop
-  cd ~/moonraker
-  scripts/data-path-fix.sh
-  sudo /etc/init.d/moonraker start
-  ```
-  You can obviously also do this manually.
-  You also have to add the following section to your `moonraker.conf`:
-  ```bash
-  [machine]
-  validate_service: False
-  validate_config: False
-  provider: none
-  ```
-  There are a few more deprecated settings now, check the notifications or moonraker docs to find out what you need to remove.
- 
-- When checking the OTG+Charge Cable, each phone "recognizes" a different resistor, my recommendation is that once you build your cable, try not to solder the resistor directly to the 5 pin plug. Instead, use a breadboard temporary and test with different resistors. My approach was the following:
-    - Without connecting anything to the microusb port (not tested with type-c) Open Octo4a app in your mobile
-    - connect the printer to the usb modified cable (assuming that you have already builded one ;) ) 
-    - connect the charger to the microusb male port
-    - connect the modified cable to the mobile phone.
-        - If the phone detects charge and Octo4a shows a popup requesting access to a serial device, you're done! the resistor is working. 
-        - If the phone detects only charge and Octo4a doesn't show a popup requesting serial access, you must remove the resistor from the breadboard and try with a different one. 
-        - Repeat this process until you figure it out.
-        - My case i bought a resistor kit with values from 1k Ohm to 1M (about 20 possibilities). I changed them 1 by 1 until it worked. 
-        - Just as a reference in case anyone has the same device. I used a Lenovo tab M8 (TB 8505F) and it worked with a 10k Ohm resistor!
-         
