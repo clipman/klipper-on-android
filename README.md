@@ -96,7 +96,9 @@ You can start/stop Klipper and Moonraker manually by using the `service` command
 Logs can be found in `/home/android/klipper_logs`.
 
 아래와 같이 수동으로 재실행이 가능합니다.
+
 /etc/init.d/moonraker restart
+
 /etc/init.d/klipper restart
 
 
