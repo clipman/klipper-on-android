@@ -16,7 +16,8 @@ do
 done
 if [ $timeout -lt 60 ]
 then
-    DISPLAY=$KLIPPERSCREEN_DISPLAY /$KLIPPERSCREEN_USER/.KlipperScreen-env/bin/python /$KLIPPERSCREEN_USER/KlipperScreen/screen.py -c $KLIPPERSCREEN_CONFIG -l $KLIPPERSCREEN_LOG >/dev/null 2>&1 < /dev/null &
+    export DISPLAY=$KLIPPERSCREEN_DISPLAY
+    /$KLIPPERSCREEN_USER/.KlipperScreen-env/bin/python /$KLIPPERSCREEN_USER/KlipperScreen/screen.py -c $KLIPPERSCREEN_CONFIG -l $KLIPPERSCREEN_LOG >/dev/null 2>&1 < /dev/null &
     exit 0
 else
     exit 1
