@@ -73,7 +73,7 @@
   wget -O /etc/default/klipper-mcu https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_klipper-mcu
   wget -O /etc/init.d/klipper-mcu https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_klipper-mcu
   wget -O /usr/local/bin/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/usr_local_bin_xterm
-  wget -O /root https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/xterm.sh
+  wget -O /root/xterm.sh https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/xterm.sh
   
   chmod +x /etc/init.d/klipper 
   chmod +x /etc/init.d/moonraker 
