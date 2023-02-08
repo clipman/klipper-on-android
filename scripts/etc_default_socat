@@ -1,0 +1,6 @@
+# Configuration for /etc/init.d/socat
+
+KLIPPER_SOCAT_TCP=192.168.219.195:8888
+KLIPPER_SOCAT_USER=root
+KLIPPER_SOCAT_EXEC=socat
+KLIPPER_SOCAT_ARGS="pty,link=/tmp/port0,b115200,raw,echo=0 tcp:$KLIPPER_SOCAT_TCP"
