@@ -38,12 +38,22 @@
 - SSH into the container.
 - Install Git and KIAUH: 
   ```bash
-  sudo apt install git
+  sudo apt install git socat -y
   git clone https://github.com/th33xitus/kiauh.git
+  nano kiauh/kiauh.sh
+  #check_euid
+  ^O Enter ^X
   ```
 - Install Klipper, Moonraker, Mainsail (or Fluidd), and KlipperScreen:
   ```bash 
   kiauh/kiauh.sh
+  nano KlipperScreen/scripts/KlipperScreen-install.sh
+  #if [ "$EUID" == 0 ]
+  #    then echo_error "Plaease do not run this script as root"
+  #    exit 1
+  #fi
+  ^O Enter ^X
+  KlipperScreen/scripts/KlipperScreen-install.sh
   ```
   *Note: KlipperScreen in particular will take a very long time (tens of minutes).*  
 - Find your printer's serial device for use in Klipper's `printer.cfg`:  
