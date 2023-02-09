@@ -24,7 +24,7 @@
     *Note: You can choose `File` but make sure it's large enough as you can't resize it later and 2 GB is not enough.*  
     - **Installation path**: `/data/local/debian`  
     *Note: You can choose a different location but if it's within `${EXTERNALDATA}` then SSH may fail to start.*  
-    - **User name**: `android`  
+    - **User name**: `root`  
     *Note: You can choose something else if you make sure to update the scripts in this gist accordingly.*  
   - **INIT**:
     - **Enable**: `yes`
@@ -80,19 +80,20 @@
   wget -O /etc/init.d/klipper https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_klipper
   wget -O /etc/default/moonraker https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_moonraker
   wget -O /etc/init.d/moonraker https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_moonraker
-  wget -O /etc/default/klipper-mcu https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_klipper-mcu
-  wget -O /etc/init.d/klipper-mcu https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_klipper-mcu
+  wget -O /etc/default/socat https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_socat
+  wget -O /etc/init.d/socat https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_socat
   wget -O /usr/local/bin/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/usr_local_bin_xterm
   wget -O /root/xterm.sh https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/xterm.sh
   
-  chmod +x /etc/init.d/klipper 
-  chmod +x /etc/init.d/moonraker 
-  chmod +x /etc/init.d/klipper-mcu
+  chmod +x /etc/init.d/klipper
+  chmod +x /etc/init.d/moonraker
+  chmod +x /etc/init.d/socat
   chmod +x /usr/local/bin/xterm
   chmod +x /root/xterm.sh
 
   update-rc.d klipper defaults
   update-rc.d moonraker defaults
+  update-rc.d socat defaults
   update-rc.d klipper-mcu defaults
   ```
 - Stop the Debian container.
@@ -104,14 +105,12 @@
 - KlipperScreen should appear in XServer XSDL and Mainsail and/or Fluidd should be accesible using your Android device's IP address in a browser.
 
 ## Misc
-You can start/stop Klipper and Moonraker manually by using the `service` command (eg: `sudo service start klipper`).  
-Logs can be found in `/home/android/klipper_logs`.
-
-아래와 같이 수동으로 재실행이 가능합니다.
+You can start/stop Klipper, Moonraker and socat manually by using the `service` command (eg: `sudo service start klipper`).  
 
   ```bash
   /etc/init.d/moonraker restart 
   /etc/init.d/klipper restart
+  /etc/init.d/socat restart
 
   /root/xterm.sh start 
   /root/xterm.sh stop
