@@ -1,6 +1,6 @@
 #!/bin/bash
 
-KLIPPERSCREEN_DISPLAY=127.0.0.1:0  #127.0.0.1:1
+KLIPPERSCREEN_DISPLAY=127.0.0.1:0
 ret=1
 timeout=0
 echo -n "Waiting for x-server to be ready "
