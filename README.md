@@ -95,6 +95,10 @@
   update-rc.d moonraker defaults
   update-rc.d socat defaults
   update-rc.d klipper-mcu defaults
+  
+  nano /etc/default/socat
+  nano /usr/local/bin/xterm
+  nano /root/xterm.sh
   ```
 - Stop the Debian container.
 - Start XServer XSDL.
