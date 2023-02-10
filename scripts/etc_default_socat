@@ -3,4 +3,4 @@
 KLIPPER_SOCAT_TCP=127.0.0.1:8888
 KLIPPER_SOCAT_USER=root
 KLIPPER_SOCAT_EXEC=/usr/bin/socat
-KLIPPER_SOCAT_ARGS="pty,link=/tmp/port0,ispeed=b250000,ospeed=b250000,raw,echo=0 tcp:$KLIPPER_SOCAT_TCP"
+KLIPPER_SOCAT_ARGS="pty,link=/tmp/port0,ispeed=b115200,ospeed=b115200,raw,echo=0 tcp:$KLIPPER_SOCAT_TCP"
