@@ -29,7 +29,7 @@ start)  log_daemon_msg "Starting" $NAME
                           --chuid $KLIPPER_SOCAT_USER --user $KLIPPER_SOCAT_USER \
                           -- $KLIPPER_SOCAT_ARGS
         log_end_msg $?
-        chmod 777 /tmp/port0
+        sudo chmod 777 /tmp/port0
         ;;
 stop)   log_daemon_msg "Stopping" $NAME
         killproc -p $PIDFILE $KLIPPER_SOCAT_EXEC
