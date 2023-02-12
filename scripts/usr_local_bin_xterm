@@ -2,8 +2,9 @@
 
 KLIPPERSCREEN_DISPLAY=127.0.0.1:0
 KLIPPERSCREEN_USER=root
-KLIPPERSCREEN_CONFIG=/$KLIPPERSCREEN_USER/printer_data/config/KlipperScreen.conf
-KLIPPERSCREEN_LOG=/$KLIPPERSCREEN_USER/printer_data/logs/KlipperScreen.log
+KLIPPERSCREEN_USER_DIR=/root
+KLIPPERSCREEN_CONFIG=$KLIPPERSCREEN_USER_DIR/printer_data/config/KlipperScreen.conf
+KLIPPERSCREEN_LOG=$KLIPPERSCREEN_USER_DIR/printer_data/logs/KlipperScreen.log
 
 ret=1
 timeout=0
@@ -17,7 +18,7 @@ done
 if [ $timeout -lt 60 ]
 then
     export DISPLAY=$KLIPPERSCREEN_DISPLAY
-    /$KLIPPERSCREEN_USER/.KlipperScreen-env/bin/python /$KLIPPERSCREEN_USER/KlipperScreen/screen.py -c $KLIPPERSCREEN_CONFIG -l $KLIPPERSCREEN_LOG >/dev/null 2>&1 < /dev/null &
+    $KLIPPERSCREEN_USER_DIR/.KlipperScreen-env/bin/python $KLIPPERSCREEN_USER_DIR/KlipperScreen/screen.py -c $KLIPPERSCREEN_CONFIG -l $KLIPPERSCREEN_LOG >/dev/null 2>&1 < /dev/null &
     exit 0
 else
     exit 1
