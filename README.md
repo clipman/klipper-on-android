@@ -76,6 +76,12 @@
     ```
 - Install the init and xterm scripts from this gist:  
   ```bash
+  wget -O /root/install_scripts.sh https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/install_scripts.sh
+  chmod +x /root/install_scripts.sh
+  /root/install_scripts.sh
+  ```
+    
+  ```
   wget -O /etc/default/klipper https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_klipper
   wget -O /etc/init.d/klipper https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_klipper
   wget -O /etc/default/moonraker https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_moonraker
