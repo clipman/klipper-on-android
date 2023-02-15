@@ -88,22 +88,30 @@
   wget -O /etc/init.d/moonraker https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_moonraker
   wget -O /etc/default/socat https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_socat
   wget -O /etc/init.d/socat https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_socat
-  wget -O /usr/local/bin/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/usr_local_bin_xterm
-  wget -O /root/xterm.sh https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/xterm.sh
+  wget -O /etc/default/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_xterm
+  wget -O /etc/init.d/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_xterm
+  
+  #wget -O /usr/local/bin/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/usr_local_bin_xterm
+  #wget -O /root/xterm.sh https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/xterm.sh
   
   chmod +x /etc/init.d/klipper
   chmod +x /etc/init.d/moonraker
   chmod +x /etc/init.d/socat
-  chmod +x /usr/local/bin/xterm
-  chmod +x /root/xterm.sh
+  chmod +x /etc/init.d/xterm
+
+  #chmod +x /usr/local/bin/xterm
+  #chmod +x /root/xterm.sh
 
   update-rc.d klipper defaults
   update-rc.d moonraker defaults
   update-rc.d socat defaults
+  update-rc.d xterm defaults
   
   nano /etc/default/socat
-  nano /usr/local/bin/xterm
-  nano /root/xterm.sh
+  nano /etc/default/xterm
+
+  #nano /usr/local/bin/xterm
+  #nano /root/xterm.sh
   ```
 - Stop the Debian container.
 - Start XServer XSDL.
@@ -117,12 +125,20 @@
 You can start/stop Klipper, Moonraker and socat manually by using the `service` command (eg: `sudo service start klipper`).  
 
   ```bash
+  service moonraker restart 
+  service klipper restart
+  service socat restart
+  service xterm restart
+
+  or
+
   /etc/init.d/moonraker restart 
   /etc/init.d/klipper restart
   /etc/init.d/socat restart
+  /etc/init.d/xterm restart
 
-  /root/xterm.sh start 
-  /root/xterm.sh stop
+  #/root/xterm.sh start 
+  #/root/xterm.sh stop
   ```
 
 ## Telegram Bot
