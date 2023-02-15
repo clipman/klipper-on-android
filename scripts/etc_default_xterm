@@ -1,0 +1,10 @@
+# Configuration for /etc/init.d/xterm
+
+export DISPLAY=localhost:0
+KLIPPERSCREEN_USER=root
+KLIPPERSCREEN_USER_DIR=/root
+#KLIPPERSCREEN_CONFIG=$KLIPPERSCREEN_USER_DIR/printer_data/config/KlipperScreen.conf
+#KLIPPERSCREEN_LOG=$KLIPPERSCREEN_USER_DIR/printer_data/logs/KlipperScreen.log
+#KLIPPERSCREEN_ARGS="$KLIPPERSCREEN_USER_DIR/KlipperScreen/screen.py -c $KLIPPERSCREEN_CONFIG -l $KLIPPERSCREEN_LOG >/dev/null 2>&1 < /dev/null"
+KLIPPERSCREEN_EXEC=$KLIPPERSCREEN_USER_DIR/.KlipperScreen-env/bin/python
+KLIPPERSCREEN_ARGS="$KLIPPERSCREEN_USER_DIR/KlipperScreen/screen.py"
