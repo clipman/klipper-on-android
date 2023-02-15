@@ -1,6 +1,6 @@
 #!/bin/bash
 
-KLIPPERSCREEN_DISPLAY=127.0.0.1:0
+KLIPPERSCREEN_DISPLAY=localhost:0
 
 case "$1" in
     stop)
