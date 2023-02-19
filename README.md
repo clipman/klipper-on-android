@@ -92,15 +92,11 @@
   wget -O /etc/init.d/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_xterm
   wget -O /usr/local/bin/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/usr_local_bin_xterm
   
-  #wget -O /root/xterm.sh https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/xterm.sh
-  
   chmod +x /etc/init.d/klipper
   chmod +x /etc/init.d/moonraker
   chmod +x /etc/init.d/socat
   chmod +x /etc/init.d/xterm
   chmod +x /usr/local/bin/xterm
-
-  #chmod +x /root/xterm.sh
 
   update-rc.d klipper defaults
   update-rc.d moonraker defaults
@@ -110,8 +106,6 @@
   nano /etc/default/socat
   nano /etc/default/xterm
   nano /usr/local/bin/xterm
-
-  #nano /root/xterm.sh
   ```
 - Stop the Debian container.
 - Start XServer XSDL.
@@ -122,7 +116,7 @@
 - KlipperScreen should appear in XServer XSDL and Mainsail and/or Fluidd should be accesible using your Android device's IP address in a browser.
 
 ## Misc
-You can start/stop Klipper, Moonraker and socat manually by using the `service` command (eg: `sudo service start klipper`).  
+You can start/stop Klipper, Moonraker, Socat and Xterm manually by using the `service` command (eg: `sudo service start klipper`).  
 
   ```bash
   service moonraker restart 
@@ -136,9 +130,6 @@ You can start/stop Klipper, Moonraker and socat manually by using the `service` 
   /etc/init.d/klipper restart
   /etc/init.d/socat restart
   /etc/init.d/xterm restart
-
-  #/root/xterm.sh start 
-  #/root/xterm.sh stop
   ```
 
 ## Telegram Bot
