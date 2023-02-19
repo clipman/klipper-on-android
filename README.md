@@ -90,16 +90,16 @@
   wget -O /etc/init.d/socat https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_socat
   wget -O /etc/default/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_xterm
   wget -O /etc/init.d/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_xterm
+  wget -O /usr/local/bin/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/usr_local_bin_xterm
   
-  #wget -O /usr/local/bin/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/usr_local_bin_xterm
   #wget -O /root/xterm.sh https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/xterm.sh
   
   chmod +x /etc/init.d/klipper
   chmod +x /etc/init.d/moonraker
   chmod +x /etc/init.d/socat
   chmod +x /etc/init.d/xterm
+  chmod +x /usr/local/bin/xterm
 
-  #chmod +x /usr/local/bin/xterm
   #chmod +x /root/xterm.sh
 
   update-rc.d klipper defaults
@@ -109,8 +109,8 @@
   
   nano /etc/default/socat
   nano /etc/default/xterm
+  nano /usr/local/bin/xterm
 
-  #nano /usr/local/bin/xterm
   #nano /root/xterm.sh
   ```
 - Stop the Debian container.
