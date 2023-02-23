@@ -84,6 +84,8 @@
   wget -O /etc/init.d/klipper https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_klipper
   wget -O /etc/default/moonraker https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_moonraker
   wget -O /etc/init.d/moonraker https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_moonraker
+  wget -O /etc/default/crowsnest https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_crowsnest
+  wget -O /etc/init.d/crowsnest https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_crowsnest
   wget -O /etc/default/socat https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_socat
   wget -O /etc/init.d/socat https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_socat
   wget -O /etc/default/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_xterm
@@ -92,12 +94,14 @@
   
   chmod +x /etc/init.d/klipper
   chmod +x /etc/init.d/moonraker
+  chmod +x /etc/init.d/crowsnest
   chmod +x /etc/init.d/socat
   chmod +x /etc/init.d/xterm
   chmod +x /usr/local/bin/xterm
 
   update-rc.d klipper defaults
   update-rc.d moonraker defaults
+  update-rc.d crowsnest defaults
   update-rc.d socat defaults
   update-rc.d xterm defaults
   
@@ -117,15 +121,17 @@
 You can start/stop Klipper, Moonraker, Socat and Xterm manually by using the `service` command (eg: `sudo service start klipper`).  
 
   ```bash
-  service moonraker restart 
   service klipper restart
+  service moonraker restart 
+  service crowsnest restart
   service socat restart
   service xterm restart
 
   or
 
-  /etc/init.d/moonraker restart 
   /etc/init.d/klipper restart
+  /etc/init.d/moonraker restart 
+  /etc/init.d/crowsnest restart
   /etc/init.d/socat restart
   /etc/init.d/xterm restart
   ```
