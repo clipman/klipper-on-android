@@ -9,7 +9,7 @@
   - Linux Deploy app: https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy
   - XServer app: https://play.google.com/store/apps/details?id=x.org.server
   - Octo4a app: https://github.com/feelfreelinux/octo4a
-- An OTG+Charge cable up and running for the same device ( please check this video for reference: https://www.youtube.com/watch?v=8afFKyIbky0)
+- An OTG+Charge cable up and running for the same device.
 - An already flashed printer using Klipper firmware. 
   - For reference : https://3dprintbeginner.com/how-to-install-klipper-on-sidewinder-x2/
 
@@ -21,11 +21,8 @@
   - **Bootstrap**:
     - **Distro**: `Debian` (buster)
     - **Installation type**: `Directory`  
-    *Note: You can choose `File` but make sure it's large enough as you can't resize it later and 2 GB is not enough.*  
     - **Installation path**: `/data/local/debian`  
-    *Note: You can choose a different location but if it's within `${EXTERNALDATA}` then SSH may fail to start.*  
     - **User name**: `root`  
-    *Note: You can choose something else if you make sure to update the scripts in this gist accordingly.*  
   - **INIT**:
     - **Enable**: `yes`
     - **Init system**: `sysv`
@@ -57,9 +54,10 @@
   ```
   *Note: KlipperScreen in particular will take a very long time (tens of minutes).*  
 - Find your printer's serial device for use in Klipper's `printer.cfg`:  
-  It will likely be `/dev/ttyACM0` or `/dev/ttyUSB0`. Check if either of those appear/disappear under `/dev/` when plugging/unplugging your printer.  
   
-  If you cannot find your printer in `/dev/`, then you can check Octo4a app which includes a custom implementation of the CH34x driver. IMPORTANT: You don't need to run OctoPrint within it so once in the main screen of the app just stop it if it's running. To do this:   
+  You can check Octo4a app which includes a custom implementation of the CH34x driver.
+  IMPORTANT: You don't need to run OctoPrint within it so once in the main screen of the app just stop it if it's running.
+  To do this:   
     - Install Octo4a from https://github.com/feelfreelinux/octo4a/releases
     - Run Octo4a and let it install OctoPrint (optionally tap the Stop button once it's done installing).
     - Make sure Octo4a sees your printer (it will be listed with a checked-box next to it).
