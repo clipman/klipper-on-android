@@ -27,3 +27,4 @@ update-rc.d xterm defaults
 
 nano /etc/default/socat
 nano /etc/default/xterm
+nano /usr/local/bin/xterm
