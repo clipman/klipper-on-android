@@ -10,12 +10,14 @@ wget -O /etc/default/socat https://raw.githubusercontent.com/clipman/klipper-on-
 wget -O /etc/init.d/socat https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_socat
 wget -O /etc/default/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_xterm
 wget -O /etc/init.d/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_xterm
+wget -O /usr/local/bin/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/usr_local_bin_xterm
 
 chmod +x /etc/init.d/klipper
 chmod +x /etc/init.d/moonraker
 chmod +x /etc/init.d/crowsnest
 chmod +x /etc/init.d/socat
 chmod +x /etc/init.d/xterm
+chmod +x /usr/local/bin/xterm
 
 update-rc.d klipper defaults
 update-rc.d moonraker defaults
