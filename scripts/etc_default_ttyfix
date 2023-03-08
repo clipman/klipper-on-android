@@ -1,0 +1,4 @@
+# Configuration for /etc/init.d/ttyfix
+
+TTYFIX_USER=root
+TTYFIX_EXEC=/usr/local/bin/ttyfix
