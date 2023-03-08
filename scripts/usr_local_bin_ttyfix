@@ -1,0 +1,9 @@
+#!/bin/bash
+
+inotifywait -m /dev -e create |
+    while read dir action file
+    do
+        [ "$file" = "ttyUSB0" ] && chmod 666 /dev/ttyUSB0 && ln -sf /dev/ttyUSB0 /dev/ttyUSB-ch341
+        [ "$file" = "ttyUSB1" ] && chmod 666 /dev/ttyUSB1 && ln -sf /dev/ttyUSB1 /dev/ttyUSB-ch341
+        [ "$file" = "ttyUSB2" ] && chmod 666 /dev/ttyUSB2 && ln -sf /dev/ttyUSB2 /dev/ttyUSB-ch341
+    done
