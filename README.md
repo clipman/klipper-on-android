@@ -70,7 +70,7 @@
     - `/root/octo4a/serialpipe` is the serial port you need to use in your `printer.cfg`
 - Make the serial device accessible to Klipper:
     ```bash
-    chmod 777 /root/octo4a/serialpipe
+    chmod 666 /root/octo4a/serialpipe
     ```
 - Install the init and xterm scripts from this gist:  
   ```bash
