@@ -35,7 +35,7 @@
 - SSH into the container.
 - Install Git and KIAUH: 
   ```bash
-  sudo apt install git socat -y
+  sudo apt install git socat inotify-tools -y
   git clone https://github.com/th33xitus/kiauh.git
   nano kiauh/kiauh.sh
   #check_euid
