@@ -11,20 +11,27 @@ wget -O /etc/init.d/socat https://raw.githubusercontent.com/clipman/klipper-on-a
 wget -O /etc/default/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_xterm
 wget -O /etc/init.d/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_xterm
 wget -O /usr/local/bin/xterm https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/usr_local_bin_xterm
+wget -O /etc/default/ttyfix https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_default_ttyfix
+wget -O /etc/init.d/ttyfix https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/etc_init.d_ttyfix
+wget -O /usr/local/bin/ttyfix https://raw.githubusercontent.com/clipman/klipper-on-android/main/scripts/usr_local_bin_ttyfix
 
 chmod +x /etc/init.d/klipper
 chmod +x /etc/init.d/moonraker
 chmod +x /etc/init.d/crowsnest
 chmod +x /etc/init.d/socat
 chmod +x /etc/init.d/xterm
+chmod +x /etc/init.d/ttyfix
 chmod +x /usr/local/bin/xterm
+chmod +x /usr/local/bin/ttyfix
 
 update-rc.d klipper defaults
 update-rc.d moonraker defaults
 update-rc.d crowsnest defaults
 update-rc.d socat defaults
 update-rc.d xterm defaults
+update-rc.d ttyfix defaults
 
 nano /etc/default/socat
 nano /etc/default/xterm
 nano /usr/local/bin/xterm
+nano /usr/local/bin/ttyfix
