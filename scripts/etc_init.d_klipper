@@ -24,7 +24,8 @@ PIDFILE=/var/run/klipper.pid
 
 case "$1" in
 start)  log_daemon_msg "Starting" $NAME
-        sudo chmod 777 $KLIPPY_USER_DIR/octo4a/serialpipe
+        #sudo chmod 666 /dev/ttyUSB*
+        sudo chmod 666 $KLIPPY_USER_DIR/octo4a/serialpipe
         start-stop-daemon --start --quiet --exec $KLIPPY_EXEC \
                           --background --pidfile $PIDFILE --make-pidfile \
                           --chuid $KLIPPY_USER --user $KLIPPY_USER \
